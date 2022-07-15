@@ -14,7 +14,7 @@ public class BdHelper {
 
     public static Connection getConnection() throws SQLException {
         String dbUrl = System.getProperty("db.url");
-        String user = System.getProperty("db.user");
+        String user = System.getProperty("db.username");
         String password = System.getProperty("db.password");
         final Connection connection = DriverManager.getConnection(dbUrl, user, password);
         return connection;

@@ -1,1 +1,0 @@
-{"uuid":"f4b03d5d-a0ab-477a-a334-70244966058e","name":"PaymentCardTest","children":["42c354e3-d220-41e5-a43e-645ae7b50882","dc537dc7-f4aa-48e2-9ec0-bc4bb1ba2133"],"befores":[{"name":"openPage","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1657716607186,"stop":1657716609758}],"afters":[],"start":1657716607154,"stop":1657716618147}
