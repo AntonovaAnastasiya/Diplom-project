@@ -3,7 +3,7 @@ package ru.netology.web.test;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import lombok.val;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import ru.netology.web.data.BdHelper;
@@ -14,12 +14,14 @@ import ru.netology.web.page.TravelPage;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.netology.web.data.BdHelper.cleanDataBase;
 
 
 public class PaymentCardTest {
 
-    @BeforeAll
-    static void openPage() {
+    @BeforeEach
+    void openPage() {
+        cleanDataBase();
         Configuration.holdBrowserOpen = true;
         open("http://localhost:8080");
     }
@@ -32,8 +34,7 @@ public class PaymentCardTest {
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(validCardInformation);
             paymentPage.approved();
-            assertEquals("APPROVED", new BdHelper().getPaymentStatus());
-            assertEquals(45000, new BdHelper().getPaymentAmount());
+            assertEquals("APPROVED", new BdHelper().getPurchaseByDebitCard());
         }
 
 
@@ -43,7 +44,7 @@ public class PaymentCardTest {
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(invalidCardInformation);
             paymentPage.approved();
-            assertEquals("DECLINED", new BdHelper().getPaymentStatus());
+            assertEquals("DECLINED", new BdHelper().getPurchaseByDebitCard());
 
         }
     }

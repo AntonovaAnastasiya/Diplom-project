@@ -9,38 +9,77 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static java.sql.DriverManager.getConnection;
+
 public class BdHelper {
-    private static final QueryRunner runner = new QueryRunner();
+    private static final String url = System.getProperty("db.url");
+    private static final String user = System.getProperty("db.username");
+    private static final String password = System.getProperty("db.password");
 
-    public static Connection getConnection() throws SQLException {
-        String dbUrl = System.getProperty("db.url");
-        String user = System.getProperty("db.username");
-        String password = System.getProperty("db.password");
-        final Connection connection = DriverManager.getConnection(dbUrl, user, password);
-        return connection;
+    public BdHelper() {
     }
 
-    @SneakyThrows
-    public String getPaymentStatus() {
-        val status = "SELECT status FROM payment_entity";
-        return runner.query(getConnection(), status, new ScalarHandler<>());
+    public static String getPurchaseByDebitCard() { //покупка дебетовой картой
+        val statusBD = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
+
+        try (
+                val connection = getConnection(url, user, password);
+                val payStatus = connection.createStatement()
+        ) {
+            try (val rs = payStatus.executeQuery(statusBD)) {
+                if (rs.next()) {
+                    val status = rs.getString(1);
+                    return status;
+                }
+                return null;
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
-    @SneakyThrows
-    public Integer getPaymentAmount() {
-        val amount = "SELECT amount FROM payment_entity";
-        return runner.query(getConnection(), amount, new ScalarHandler<>());
+    public static String getPurchaseOnCreditCard() { //покупка в кредит
+        val statusBD = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
+
+        try (
+                val connection = getConnection(url, user, password);
+                val payStatus = connection.createStatement()
+        ) {
+            try (val rs = payStatus.executeQuery(statusBD)) {
+                if (rs.next()) {
+                    val status = rs.getString(1);
+                    return status;
+                }
+                return null;
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
-    @SneakyThrows
-    public String getCreditRequestStatus() {
-        val status = "SELECT status FROM credit_request_entity";
-        return runner.query(getConnection(), status, new ScalarHandler<>());
-    }
 
-    @SneakyThrows
-    public String getCreditId() {
-        val id = "SELECT credit_id FROM order_entity";
-        return runner.query(getConnection(), id, new ScalarHandler<>());
+    public static void cleanDataBase() { //очистить БД
+
+        val payment = "DELETE FROM payment_entity";
+        val credit = "DELETE FROM credit_request_entity";
+        val order = "DELETE FROM order_entity";
+
+
+        try (
+                val conn = getConnection(url, user, password);
+                val prepareStatCredit = conn.createStatement();
+                val prepareStatOrder = conn.createStatement();
+                val prepareStatPayment = conn.createStatement()
+        ) {
+            prepareStatCredit.executeUpdate(credit);
+            prepareStatOrder.executeUpdate(order);
+            prepareStatPayment.executeUpdate(payment);
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
     }
 }
