@@ -22,5 +22,5 @@
 
   ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"  (для базы данных MySQL);
 
-  ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"  (для базы данных PostgreSQL);
+  ./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"  (для базы данных PostgreSQL);
 

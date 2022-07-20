@@ -1,1 +1,0 @@
-{"uuid":"e8111d0e-d87f-4f26-86af-f717e82ccd88","name":"shouldInvalidYearIfBeforeCurrentYear()","children":["df2fd3c8-4ffb-45a0-96db-db42d663693c"],"befores":[{"name":"openPage","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1658301048958,"stop":1658301049024}],"afters":[],"start":1658301048957,"stop":1658301049874}

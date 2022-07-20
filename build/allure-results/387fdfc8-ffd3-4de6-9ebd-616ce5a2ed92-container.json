@@ -1,1 +1,0 @@
-{"uuid":"387fdfc8-ffd3-4de6-9ebd-616ce5a2ed92","name":"shouldGetNotificationEmptyFields()","children":["1aebf1b0-4da1-4b33-b989-a5bb0392acd9"],"befores":[{"name":"openPage","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1658301072953,"stop":1658301073017}],"afters":[],"start":1658301072952,"stop":1658301074032}

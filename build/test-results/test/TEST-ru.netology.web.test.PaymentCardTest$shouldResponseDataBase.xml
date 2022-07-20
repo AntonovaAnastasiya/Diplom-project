@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.web.test.PaymentCardTest$shouldResponseDataBase" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-20T09:33:06" hostname="ANTONOVA" time="19.637">
+  <properties/>
+  <testcase name="shouldSuccessWithInvalidDebitCard()" classname="ru.netology.web.test.PaymentCardTest$shouldResponseDataBase" time="8.982"/>
+  <testcase name="shouldSuccessWithValidDebitCard()" classname="ru.netology.web.test.PaymentCardTest$shouldResponseDataBase" time="10.654"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
