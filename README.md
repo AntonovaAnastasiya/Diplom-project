@@ -12,7 +12,7 @@
 
   java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar ./artifacts/aqa-shop.jar  (для базы данных MySQL);
 
-  java "-Dspring.datasource.url=jdbc:mysql://localhost:5432/app" -jar ./artifacts/aqa-shop.jar (для базы данных PostgreSQL);
+  java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar ./artifacts/aqa-shop.jar (для базы данных PostgreSQL);
 
 
 3). Проверить доступность приложения в браузере по адресу: http://localhost:8080/
