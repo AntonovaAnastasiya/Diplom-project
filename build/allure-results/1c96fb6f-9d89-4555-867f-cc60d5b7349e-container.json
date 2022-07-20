@@ -1,0 +1,1 @@
+{"uuid":"1c96fb6f-9d89-4555-867f-cc60d5b7349e","name":"shouldInvalidCardOwnerNameIfRussianLetters()","children":["22f478ca-ceb8-49c4-bdb1-ecec49a98f2b"],"befores":[{"name":"openPage","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1658308744104,"stop":1658308744170}],"afters":[],"start":1658308744102,"stop":1658308749364}

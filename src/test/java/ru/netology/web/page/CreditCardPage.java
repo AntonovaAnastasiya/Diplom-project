@@ -68,7 +68,7 @@ public class CreditCardPage {
         fieldNumberCard.shouldHave(text("Неверный формат"));
     }
 
-    public void shouldValueFieldCodCVC() {
+    public void shouldValueFieldCodeCVC() {
         val fieldNumberCard = resultLinks.find(text("CVC/CVV")).parent();
         fieldNumberCard.shouldHave(text("Неверный формат"));
     }
@@ -76,6 +76,11 @@ public class CreditCardPage {
     public void shouldValueFieldHolder() {
         val fieldNumberCard = resultLinks.find(text("Владелец")).parent();
         fieldNumberCard.shouldHave(text("Поле обязательно для заполнения"));
+    }
+
+    public void shouldValueFieldHolder2() {
+        val fieldNumberCard = resultLinks.find(text("Владелец")).parent();
+        fieldNumberCard.shouldHave(text("Неверный формат"));
     }
 
     public void shouldImproperFormatNotification() {
@@ -102,7 +107,7 @@ public class CreditCardPage {
         creditPage.creditCardFullInformation(invalidCardInformation);
         creditPage.shouldEmptyFieldNotification();
         creditPage.shouldImproperFormatNotification();
-        creditPage.shouldValueFieldCodCVC();
+        creditPage.shouldValueFieldCodeCVC();
         creditPage.shouldValueFieldHolder();
         creditPage.shouldValueFieldMonth();
         creditPage.shouldValueFieldYear();

@@ -1,12 +1,7 @@
 package ru.netology.web.data;
 
-import lombok.SneakyThrows;
 import lombok.val;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import static java.sql.DriverManager.getConnection;
@@ -19,7 +14,7 @@ public class BdHelper {
     public BdHelper() {
     }
 
-    public static String getPurchaseByDebitCard() { //покупка дебетовой картой
+    public static String getPurchaseByDebitCard() { //покупка по дебетовой карте
         val statusBD = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
 
         try (
@@ -60,7 +55,7 @@ public class BdHelper {
     }
 
 
-    public static void cleanDataBase() { //очистить БД
+    public static void cleanDataBase() { //очистить Базу данных
 
         val payment = "DELETE FROM payment_entity";
         val credit = "DELETE FROM credit_request_entity";

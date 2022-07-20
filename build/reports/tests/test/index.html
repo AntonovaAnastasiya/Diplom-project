@@ -20,13 +20,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">22</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">5</div>
 <p>failures</p>
 </div>
 </td>
@@ -38,7 +38,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">5.117s</div>
+<div class="counter">1m26.51s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">77%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,13 +58,41 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Packages</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Classes</a>
+<a href="#tab1">Packages</a>
+</li>
+<li>
+<a href="#tab2">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldCodeCVC.html">shouldInvalidCardFieldCodeCVC</a>.
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldCodeCVC.html#shouldInvalidCvvIfThreeZero()">shouldInvalidCvvIfThreeZero()</a>
+</li>
+<li>
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldMonth.html">shouldInvalidCardFieldMonth</a>.
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldMonth.html#shouldInvalidNumberOfMonthIfZero()">shouldInvalidNumberOfMonthIfZero()</a>
+</li>
+<li>
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldOwner.html">shouldInvalidCardFieldOwner</a>.
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldOwner.html#shouldInvalidCardOwnerNameIfNumericAndSpecialCharacters()">shouldInvalidCardOwnerNameIfNumericAndSpecialCharacters()</a>
+</li>
+<li>
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldOwner.html">shouldInvalidCardFieldOwner</a>.
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldOwner.html#shouldInvalidCardOwnerNameIfRussianLetters()">shouldInvalidCardOwnerNameIfRussianLetters()</a>
+</li>
+<li>
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldResponseDataBase.html">shouldResponseDataBase</a>.
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldResponseDataBase.html#shouldSuccessWithInvalidCreditCard()">shouldSuccessWithInvalidCreditCard()</a>
+</li>
+</ul>
+</div>
+<div id="tab1" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -79,19 +107,19 @@
 </thead>
 <tbody>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="packages/ru.netology.web.test.html">ru.netology.web.test</a>
 </td>
-<td>1</td>
+<td>22</td>
+<td>5</td>
 <td>0</td>
-<td>0</td>
-<td>5.117s</td>
-<td class="success">100%</td>
+<td>1m26.51s</td>
+<td class="failures">77%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -106,14 +134,64 @@
 </thead>
 <tbody>
 <tr>
-<td class="success">
-<a href="classes/ru.netology.web.test.PaymentCardTest$shouldInvalidCardFieldYear.html">ru.netology.web.test.PaymentCardTest$shouldInvalidCardFieldYear</a>
+<td class="failures">
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldCodeCVC.html">ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldCodeCVC</a>
 </td>
+<td>4</td>
 <td>1</td>
 <td>0</td>
+<td>13.716s</td>
+<td class="failures">75%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldMonth.html">ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldMonth</a>
+</td>
+<td>4</td>
+<td>1</td>
 <td>0</td>
-<td>5.117s</td>
+<td>19.785s</td>
+<td class="failures">75%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldOwner.html">ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldOwner</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>11.496s</td>
+<td class="failures">33%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldYear.html">ru.netology.web.test.CreditCardTest$shouldInvalidCardFieldYear</a>
+</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>5.020s</td>
 <td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldInvalidCardNumber.html">ru.netology.web.test.CreditCardTest$shouldInvalidCardNumber</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>10.586s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/ru.netology.web.test.CreditCardTest$shouldResponseDataBase.html">ru.netology.web.test.CreditCardTest$shouldResponseDataBase</a>
+</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>25.905s</td>
+<td class="failures">50%</td>
 </tr>
 </tbody>
 </table>
@@ -126,7 +204,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 19 июл. 2022 г., 19:42:53</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 20 июл. 2022 г., 18:20:16</p>
 </div>
 </div>
 </body>

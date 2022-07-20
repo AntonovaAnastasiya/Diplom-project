@@ -1,7 +1,6 @@
 package ru.netology.web.test;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -11,7 +10,6 @@ import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.TravelPage;
 
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.web.data.BdHelper.cleanDataBase;
@@ -45,7 +43,6 @@ public class PaymentCardTest {
             paymentPage.fillCardInformationForSelectedWay(invalidCardInformation);
             paymentPage.approved();
             assertEquals("DECLINED", new BdHelper().getPurchaseByDebitCard());
-
         }
     }
 
@@ -58,7 +55,7 @@ public class PaymentCardTest {
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
             paymentPage.shouldEmptyFieldNotification();
             paymentPage.shouldImproperFormatNotification();
-            paymentPage.shouldValueFieldCodCVC();
+            paymentPage.shouldValueFieldCodeCVC();
             paymentPage.shouldValueFieldYear();
             paymentPage.shouldValueFieldMonth();
             paymentPage.shouldValueFieldNumberCard();
@@ -190,7 +187,9 @@ public class PaymentCardTest {
             val incorrectCardInfo = DataHelper.getInvalidCardOwnerNameIfNumericAndSpecialCharacters();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.shouldValueFieldHolder();
+            paymentPage.declined();
+            paymentPage.shouldValueFieldHolder2();
+
         }
 
         @Test
@@ -198,7 +197,8 @@ public class PaymentCardTest {
             val incorrectCardInfo = DataHelper.getInvalidCardHolderNameIfRussianLetters();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.shouldValueFieldHolder();
+            paymentPage.declined();
+            paymentPage.shouldValueFieldHolder2();
         }
     }
 
@@ -209,7 +209,7 @@ public class PaymentCardTest {
             val incorrectCardInfo = DataHelper.getInvalidCvcIfEmpty();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.shouldValueFieldCodCVC();
+            paymentPage.shouldValueFieldCodeCVC();
         }
 
         @Test
@@ -217,7 +217,7 @@ public class PaymentCardTest {
             val incorrectCardInfo = DataHelper.getInvalidCvcIfOneDigit();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.shouldValueFieldCodCVC();
+            paymentPage.shouldValueFieldCodeCVC();
         }
 
         @Test
@@ -225,7 +225,7 @@ public class PaymentCardTest {
             val incorrectCardInfo = DataHelper.getInvalidCvcIfTwoDigits();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-            paymentPage.shouldValueFieldCodCVC();
+            paymentPage.shouldValueFieldCodeCVC();
         }
 
         @Test
@@ -234,32 +234,7 @@ public class PaymentCardTest {
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
             paymentPage.declined();
-            paymentPage.shouldValueFieldCodCVC();
+            paymentPage.shouldValueFieldCodeCVC();
         }
     }
-
-    //Проверяем неверные подписи строчек после правильного заполнения
-    @Test
-    public void shouldInvalidCardDataIfEmptyAllFieldsAndAfterFullInformationCard() {
-        val incorrectCardInfo = DataHelper.getInvalidCardDataIfEmptyAllFields();
-        val paymentPage = new TravelPage().selectBuyByDebitCard();
-        paymentPage.fillCardInformationForSelectedWay(incorrectCardInfo);
-        paymentPage.shouldEmptyFieldNotification();
-        paymentPage.shouldImproperFormatNotification();
-        paymentPage.shouldValueFieldCodCVC();
-        paymentPage.shouldValueFieldYear();
-        paymentPage.shouldValueFieldMonth();
-        paymentPage.shouldValueFieldNumberCard();
-        paymentPage.shouldValueFieldHolder();
-        val invalidCardInfo = DataHelper.getInvalidCardNumberIfOutOfDatabase();
-        paymentPage.fillCardInformationForSelectedWay(invalidCardInfo);
-        paymentPage.declined();
-        paymentPage.shouldValueFieldCodCVC();
-        paymentPage.shouldValueFieldHolder();
-        paymentPage.shouldValueFieldNumberCard();
-        final SelenideElement declinedNotification = $(".notification_status_error");
-        declinedNotification.click();
-        paymentPage.approved();
-    }
-
 }

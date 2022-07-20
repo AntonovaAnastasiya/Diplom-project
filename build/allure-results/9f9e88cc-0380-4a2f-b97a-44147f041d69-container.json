@@ -1,1 +1,0 @@
-{"uuid":"9f9e88cc-0380-4a2f-b97a-44147f041d69","name":"shouldSuccessWithValidDebitCard()","children":["817a5abe-9190-4504-ac25-0cdd4f881a1b"],"befores":[{"name":"openPage","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1658225713777,"stop":1658225717283}],"afters":[],"start":1658225713692,"stop":1658225723815}

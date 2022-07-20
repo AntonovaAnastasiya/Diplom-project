@@ -94,11 +94,11 @@ public class DataHelper {
     }
 
     public static CardInfo getInvalidCardOwnerNameIfNumericAndSpecialCharacters() {
-        return new CardInfo("5578334444444441",  monthWhenEndOfAction, yearWhenEndOfAction, "49%953!$", cvc);
+        return new CardInfo("4444 4444 4444 4441",  monthWhenEndOfAction, yearWhenEndOfAction, "49%953!$", cvc);
     }
 
     public static CardInfo getInvalidCardHolderNameIfRussianLetters() {
-        return new CardInfo("5578334444444441",  monthWhenEndOfAction, yearWhenEndOfAction, "Олег Карпов", cvc);
+        return new CardInfo("4444 4444 4444 4441",  monthWhenEndOfAction, yearWhenEndOfAction, "Олег Карпов", cvc);
     }
 
     public static CardInfo getInvalidCvcIfEmpty() {
