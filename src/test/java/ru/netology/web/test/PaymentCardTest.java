@@ -1,10 +1,10 @@
 package ru.netology.web.test;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.netology.web.data.BdHelper;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.TravelPage;
@@ -24,25 +24,35 @@ public class PaymentCardTest {
         open("http://localhost:8080");
     }
 
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
+
     @Nested
-    class shouldResponseDataBase {
+    class shouldHappyPathForCardWithDifferentStatus {
         @Test
         void shouldSuccessWithValidDebitCard() {
             val validCardInformation = DataHelper.getValidCardInformation();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(validCardInformation);
             paymentPage.approved();
-            assertEquals("APPROVED", new BdHelper().getPurchaseByDebitCard());
+            assertEquals("APPROVED", BdHelper.getPurchaseByDebitCard());
         }
 
 
         @Test
-        void shouldSuccessWithInvalidDebitCard() {
+        void shouldUnsuccessWithInvalidDebitCard() {
             val invalidCardInformation = DataHelper.getInvalidCardInformation();
             val paymentPage = new TravelPage().selectBuyByDebitCard();
             paymentPage.fillCardInformationForSelectedWay(invalidCardInformation);
-            paymentPage.approved();
-            assertEquals("DECLINED", new BdHelper().getPurchaseByDebitCard());
+            paymentPage.declined();
+            assertEquals("DECLINED", BdHelper.getPurchaseByDebitCard());
         }
     }
 
