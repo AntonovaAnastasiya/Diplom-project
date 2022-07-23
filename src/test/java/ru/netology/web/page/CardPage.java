@@ -15,7 +15,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class CardPage {
-//    private final SelenideElement heading = $$(".heading").find(exactText("Оплата по карте"));
     private final SelenideElement numberCardField = $(".input [placeholder='0000 0000 0000 0000']");
     private final SelenideElement monthCard = $("input[placeholder='08']");
     private final SelenideElement yearCard = $("input[placeholder='22']");
@@ -95,8 +94,7 @@ public class CardPage {
         val fieldNumberCard = resultLinks.find(text("Владелец")).parent();
         fieldNumberCard.shouldHave(text("Неверный формат"));
     }
-
-
 }
+
 
 
