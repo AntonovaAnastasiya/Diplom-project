@@ -1,1 +1,0 @@
-{"uuid":"d3cec958-b18e-4885-ac6a-6dda50bce02d","name":"shouldIncorrectFieldNumberCardMiniNumber()","children":["8ad02ec2-06d2-4588-a833-9d9c441d1e1a"],"befores":[{"name":"openPage","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1658309575504,"stop":1658309575592}],"afters":[],"start":1658309575502,"stop":1658309576506}
