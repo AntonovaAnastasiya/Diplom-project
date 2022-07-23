@@ -20,9 +20,9 @@ public class TravelPage {
         return new CardPage();
     }
 
-    public CardPage selectBuyByCreditCard() {
+    public CreditCardPage selectBuyByCreditCard() {
         buttonBuyCreditCard.click();
-        return new CardPage();
+        return new CreditCardPage();
 
     }
 }
