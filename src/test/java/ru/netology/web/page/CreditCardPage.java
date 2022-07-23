@@ -8,14 +8,12 @@ import lombok.val;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class CreditCardPage {
-    private final SelenideElement heading = $$(".heading").find(exactText("Кредит по данным карты"));
     private final SelenideElement cardNumber = $(".input [placeholder='0000 0000 0000 0000']");
     private final SelenideElement month = $(".input [placeholder='08']");
     private final SelenideElement year = $(".input [placeholder='22']");
@@ -30,10 +28,6 @@ public class CreditCardPage {
     private final SelenideElement invalidExpiredDate = $(byText("Неверно указан срок действия карты"));
     private final SelenideElement expiredCard = $(byText("Истёк срок действия карты"));
     private final ElementsCollection resultLinks = $$(".input__top");
-
-    public CreditCardPage() {
-        heading.shouldBe(Condition.visible);
-    }
 
     public void creditCardFullInformation(DataHelper.CardInfo info) {
         cardNumber.setValue(info.getNumber());
@@ -97,22 +91,5 @@ public class CreditCardPage {
 
     public void shouldExpiredDatePassNotification() {
         expiredCard.shouldBe(Condition.visible);
-    }
-
-    public void shouldInvalidCardDataIfEmptyAllFieldsAndAfterFullInformationCard(){
-        val invalidCardInformation = DataHelper.getInvalidCardDataIfEmptyAllFields();
-        val paymentPage = new TravelPage();
-        paymentPage.selectBuyByCreditCard();
-        val creditPage = new CreditCardPage();
-        creditPage.creditCardFullInformation(invalidCardInformation);
-        creditPage.shouldEmptyFieldNotification();
-        creditPage.shouldImproperFormatNotification();
-        creditPage.shouldValueFieldCodeCVC();
-        creditPage.shouldValueFieldHolder();
-        creditPage.shouldValueFieldMonth();
-        creditPage.shouldValueFieldYear();
-        creditPage.shouldValueFieldNumberCard();
-        val validCardInformation = DataHelper.getInvalidCardNumberIfOutOfDatabase();
-        creditPage.creditCardFullInformation(validCardInformation);
     }
 }
