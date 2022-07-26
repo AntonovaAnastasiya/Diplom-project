@@ -1,7 +1,7 @@
 **Дипломный проект профессии «Тестировщик»**
 
 1. *План автоматизации тестирования*
-[Plan.md](https://github.com/AntonovaAnastasiya/Diplom-project/files/8985065/Plan.md)
+[Plan.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/1ba580bdc75f233acc7d75c2474e9a1999e77f2f/Docs/Plan.md)
 
 2. *Для запуска автотестов необходимо:*
 
