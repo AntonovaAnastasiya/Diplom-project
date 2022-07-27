@@ -39,4 +39,4 @@ ________________
 [Report.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/1970f7f62433557befbfc0094aabe353a11fad66/Docs/Report.md)
 _______________
 4. *Отчётный документ по итогам автоматизации*
-[Summary.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/a6e1fa4117d1d2a6cba68e548ad5e2cf2978269a/Docs/Summary.md)
+[Summary.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/e427c11a1fb6fbfda3358de8f67aae01b50436ad/Docs/Summary.md)
