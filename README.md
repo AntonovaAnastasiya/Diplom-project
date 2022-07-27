@@ -1,8 +1,10 @@
 **Дипломный проект профессии «Тестировщик»**
 
+
 1. *План автоматизации тестирования*
 [Plan.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/1ba580bdc75f233acc7d75c2474e9a1999e77f2f/Docs/Plan.md)
 
+_____________
 2. *Для запуска автотестов необходимо:*
 
 1). Запустить Docker  на ПК.
@@ -25,4 +27,16 @@
   ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"  (для базы данных MySQL);
 
   ./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"  (для базы данных PostgreSQL);
+  
+6) Для запуска и просмотра отчетов по результатам тестирования, с помощью "Allure", выполнить по очереди команды:
 
+./gradlew allureReport
+
+./gradlew allureServe
+________________
+
+3. *Отчётный документ по итогам тестирования*
+[Report.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/1970f7f62433557befbfc0094aabe353a11fad66/Docs/Report.md)
+_______________
+4. *Отчётный документ по итогам автоматизации*
+[Summary.md](https://github.com/AntonovaAnastasiya/Diplom-project/blob/a6e1fa4117d1d2a6cba68e548ad5e2cf2978269a/Docs/Summary.md)
